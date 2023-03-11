@@ -9,22 +9,29 @@ import chorbova.velichka.restful.web.service.model.inventory.Food;
 import chorbova.velichka.restful.web.service.model.inventory.Item;
 import chorbova.velichka.restful.web.service.repository.BeverageRepository;
 import chorbova.velichka.restful.web.service.repository.FoodRepository;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 
 @Service
-public class InventoryServiceImpl extends MachineService implements InventoryService {
+public class InventoryServiceImpl implements InventoryService {
 
     // A global variable for the entire application, defined in application.properties
     @Value("${vending.machine.capacity}")
+    @Setter
     private Integer vendingMachineCapacity;
     @Autowired
     BeverageRepository beverageRepository;
 
     @Autowired
     FoodRepository foodRepository;
+
+    public InventoryServiceImpl(BeverageRepository beverageRepository, FoodRepository foodRepository) {
+        this.beverageRepository = beverageRepository;
+        this.foodRepository = foodRepository;
+    }
 
     @Override
     public Beverage addBeverage(Beverage beverage) throws MissingItemException, MissingValuesException,
@@ -78,11 +85,11 @@ public class InventoryServiceImpl extends MachineService implements InventorySer
 
         updateBeverage.setIsFizzyDrink(beverage.getIsFizzyDrink());
         updateBeverage.setQuantity(beverage.getQuantity());
-        updateBeverage.setAvailable(beverage.getAvailable());
+        updateBeverage.setAvailable(beverage.isAvailable());
         updateBeverage.setPrice(beverage.getPrice());
         updateBeverage.setType(beverage.getType());
 
-        return beverageRepository.save(updateBeverage);
+        return beverageRepository.save(updateBeverage); //persist the changes
     }
 
     @Override
@@ -99,11 +106,11 @@ public class InventoryServiceImpl extends MachineService implements InventorySer
                         .format("Food item with id %s does not exist!", id)));
 
         updateFood.setQuantity(food.getQuantity());
-        updateFood.setAvailable(food.getAvailable());
+        updateFood.setAvailable(food.isAvailable());
         updateFood.setPrice(food.getPrice());
         updateFood.setType(food.getType());
 
-        return foodRepository.save(updateFood);
+        return foodRepository.save(updateFood); //persist the changes
     }
 
     @Override

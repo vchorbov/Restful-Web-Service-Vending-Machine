@@ -1,5 +1,7 @@
 package chorbova.velichka.restful.web.service.model.balance;
 
+import lombok.Getter;
+
 import java.math.BigDecimal;
 
 public enum CoinType {
@@ -9,8 +11,8 @@ public enum CoinType {
     FIFTY(new BigDecimal(0.5)),
     LEV(new BigDecimal(1)),
     TWO_LEVA(new BigDecimal(2));
-
-    public BigDecimal amount;
+    @Getter
+    private BigDecimal amount;
 
     private CoinType(BigDecimal amount) {
         this.amount = amount;

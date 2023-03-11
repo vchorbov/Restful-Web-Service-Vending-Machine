@@ -24,7 +24,7 @@ public class InventoryController {
     private InventoryService inventoryService;
 
     @PostMapping("/beverage")
-    public ResponseEntity<Beverage> createBeverage(@RequestBody final Beverage beverage) {
+    public ResponseEntity createBeverage(@RequestBody final Beverage beverage) {
         Beverage createdBeverage;
 
         try {
@@ -41,7 +41,7 @@ public class InventoryController {
     }
 
     @PostMapping("/food")
-    public ResponseEntity<Food> createFood(@RequestBody final Food foodItem) {
+    public ResponseEntity createFood(@RequestBody final Food foodItem) {
         Food createdFoodItem;
 
         try {
@@ -58,7 +58,7 @@ public class InventoryController {
     }
 
     @PutMapping("/beverage/{id}")
-    public ResponseEntity<Beverage> updateBeverage(@PathVariable Long id, @RequestBody Beverage beverage) {
+    public ResponseEntity updateBeverage(@PathVariable Long id, @RequestBody Beverage beverage) {
         Beverage updatedBeverage;
 
         try {
@@ -74,7 +74,7 @@ public class InventoryController {
     }
 
     @PutMapping("/food/{id}")
-    public ResponseEntity<Food> updateBeverage(@PathVariable Long id, @RequestBody Food food) {
+    public ResponseEntity updateBeverage(@PathVariable Long id, @RequestBody Food food) {
         Food updatedFood;
 
         try {
@@ -89,7 +89,7 @@ public class InventoryController {
     }
 
     @DeleteMapping("/beverage/{id}")
-    public ResponseEntity<Beverage> updateBeverage(@PathVariable Long id) {
+    public ResponseEntity updateBeverage(@PathVariable Long id) {
 
         try {
             inventoryService.deleteBeverage(id);
@@ -102,7 +102,7 @@ public class InventoryController {
     }
 
     @DeleteMapping("/food/{id}")
-    public ResponseEntity<Beverage> updateFood(@PathVariable Long id) {
+    public ResponseEntity updateFood(@PathVariable Long id) {
 
         try {
 
@@ -129,6 +129,6 @@ public class InventoryController {
         response.put("error", errorMessage);
         response.put("status", status.value());
         response.put("message", status.getReasonPhrase());
-        return ResponseEntity.status(status).contentType(MediaType.APPLICATION_JSON).body(errorMessage);
+        return ResponseEntity.status(status).contentType(MediaType.APPLICATION_JSON).body(response);
     }
 }

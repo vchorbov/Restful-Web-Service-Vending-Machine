@@ -1,10 +1,9 @@
-INSERT INTO COIN (amount, quantity) VALUES
-('TEN', 10),
-('TWENTY', 10),
-('FIFTY', 10),
-('LEV', 10),
-('TWO_LEVA', 10);
-
+INSERT INTO BALANCE (amount, quantity) VALUES
+('TEN', 0),
+('TWENTY', 0),
+('FIFTY', 0),
+('LEV', 0),
+('TWO_LEVA', 0);
 
 --INSERT INTO BEVERAGE (available, quantity, price, is_fizzy_drink, type) VALUES
 --(true, 5, 1.1, false, 'WATER'),

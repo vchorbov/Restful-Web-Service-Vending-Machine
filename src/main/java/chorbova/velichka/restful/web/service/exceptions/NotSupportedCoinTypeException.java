@@ -1,18 +1,18 @@
 package chorbova.velichka.restful.web.service.exceptions;
 
-public class NotSupportedCoinTypeExceprion extends Exception{
-    public NotSupportedCoinTypeExceprion() {
+public class NotSupportedCoinTypeException extends Exception{
+    public NotSupportedCoinTypeException() {
     }
 
-    public NotSupportedCoinTypeExceprion(String message) {
+    public NotSupportedCoinTypeException(String message) {
         super(message);
     }
 
-    public NotSupportedCoinTypeExceprion(String message, Throwable cause) {
+    public NotSupportedCoinTypeException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public NotSupportedCoinTypeExceprion(Throwable cause) {
+    public NotSupportedCoinTypeException(Throwable cause) {
         super(cause);
     }
 }

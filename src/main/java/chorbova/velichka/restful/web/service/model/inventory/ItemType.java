@@ -1,24 +1,29 @@
 package chorbova.velichka.restful.web.service.model.inventory;
 
 import lombok.Data;
+import lombok.Getter;
 
 
 public enum ItemType {
-        APPLE("Organic"),
-        WAFFLE("Milka"),
-        SANDWICH("Grill"),
-        WATER("DEVIN"),
-        COLA("Coca-Cola"),
-        COFFEE("Java");
 
-        private String brandName;
+    // Food Items
+    APPLE("Organic"),
+    WAFFLE("Milka"),
+    SANDWICH("Grill"),
 
-        ItemType(String brandName) {
-            this.brandName = brandName;
-        }
+    // Beverage Items
+    WATER("DEVIN"),
+    COLA("Coca-Cola"),
+    COFFEE("Java");
+    @Getter
+    private String brandName;
 
-        public String getBrandName() {
-            return brandName;
-        }
+    ItemType(String brandName) {
+        this.brandName = brandName;
+    }
+
+    public String getBrandName() {
+        return brandName;
+    }
 
 }

@@ -20,7 +20,7 @@ public interface InventoryService {
      * condition.
      *
      * @param beverage
-     * @return
+     * @return Beverage
      * @throws MissingItemException
      * @throws MissingValuesException
      * @throws FullCapacityException
@@ -39,7 +39,7 @@ public interface InventoryService {
      * condition.
      *
      * @param food
-     * @return
+     * @return Food
      * @throws MissingItemException
      * @throws MissingValuesException
      * @throws FullCapacityException
@@ -56,7 +56,7 @@ public interface InventoryService {
      *
      * @param id
      * @param beverage
-     * @return
+     * @return Beverage
      * @throws MissingItemException
      * @throws MissingValuesException
      * @throws FullCapacityException
@@ -72,7 +72,7 @@ public interface InventoryService {
      *
      * @param id
      * @param food
-     * @return
+     * @return Food
      * @throws MissingItemException
      * @throws MissingValuesException
      * @throws FullCapacityException
